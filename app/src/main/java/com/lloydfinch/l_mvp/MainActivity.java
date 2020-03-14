@@ -2,17 +2,26 @@ package com.lloydfinch.l_mvp;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
+
+import com.lloydfinch.l_mvp.databinding.ActivityMainBinding;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity";
+
     //<editor-fold desc="lifecycle">
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        // setContentView(R.layout.activity_main);
 
+        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        binding.hello.setText("hello, binding");
         init(this);
     }
 
@@ -52,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
         initView();
         initData();
         initEvent();
+
+        Log.e(TAG, "init: ");
     }
 
     private void initView() {

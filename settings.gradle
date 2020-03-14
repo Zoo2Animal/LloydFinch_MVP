@@ -1,2 +1,4 @@
 rootProject.name='L_MVP'
 include ':app'
+
+include ':tools'
